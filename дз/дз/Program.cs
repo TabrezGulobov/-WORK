@@ -1,87 +1,86 @@
 ﻿using System;
-using System.Security.Cryptography;
 
-namespace ConsoleApp7
-
+namespace animal
 {
-    class Domestic
+    class Appliance
     {
-        public string Name;
         private string Brand;
         protected int Power;
-        public string Turn;
+        public bool Ison;
 
-        public string brand
+        public string getBrand
         {
-            get { return Brand;}
-            set{ Brand=value;}
+            get { return Brand; }
+            set { Brand = value; }
         }
 
-        public int power
+        public int getPower
         {
-            get { return Power;}
-            set{ Power=value;}
+            get { return Power; }
+            set { Power = value; }
+            
         }
-    }
 
-    class Fridge:Domestic
-   {
-        public Fridge()
+        public void TurnOff()
         {
-            Name = "Fridge";
-            brand = "Samsung";
-            power = 200;
-            Turn = Console.ReadLine();
-            if (Turn == "Устройство включено")
-            {
-                Console.WriteLine("Turn on");
-            }else if(Turn == "Устройство выключено")
-            {
-                Console.WriteLine("Turn off");
-            }
-            else
-            {
-                Console.WriteLine("Eror");
-            }
+            Ison = false;
+            Console.WriteLine($"{Brand} is turned off");
+            
+        }
+
+        public void TurnOn()
+        {
+            Ison = true;
+            Console.WriteLine($"{Brand} is turned on");
         }
     }
 
-    class WashingMachine:Domestic
+    class Washmexanik : Appliance
     {
-        public WashingMachine()
+        public Washmexanik()
         {
-            Name = "Washing Machine";
-            brand = "Indesit";
-            power = 100;
-            Turn = Console.ReadLine();
-            if (Turn == "Устройство включено")
-            {
-                Console.WriteLine("Turn on");
-            }else if(Turn == "Устройство выключено")
-            {
-                Console.WriteLine("Turn off");
-            }
-            else
-            {
-                Console.WriteLine("Eror");
-            }
+            getBrand = "Lg";
+            getPower = 30;
+            Ison = false;
+        }
+
+        public Washmexanik(string brand, int power)
+        {
+            getBrand = brand;
+            getPower = power;
+            Ison = false;
         }
     }
-    
+
+    class Retifigator : Appliance
+    {
+        public Retifigator()
+        {
+            getBrand = "Samsung";
+            getPower = 20;
+            Ison = false;
+        }
+
+        public Retifigator(string brand, int power)
+        {
+            getBrand = brand;
+            getPower = power;
+            Ison = false;
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
-            Fridge f = new Fridge();
-            WashingMachine v = new WashingMachine();
-            Console.WriteLine(f.Name);
-            Console.WriteLine(f.brand);
-            Console.WriteLine(f.power);
-            Console.WriteLine(f.Turn);
-            Console.WriteLine(v. Name);
-            Console.WriteLine(v.brand);
-            Console.WriteLine(v.power);
-            Console.WriteLine(v.Turn);  
+            Washmexanik washmexanik = new Washmexanik();
+            Washmexanik washmexanik1 = new Washmexanik("Samsung",45);
+            Retifigator retifigator = new Retifigator();
+            Retifigator retifigator2 = new Retifigator("Samsung", 20);
+            Console.WriteLine(washmexanik.getPower);
+            Console.WriteLine(washmexanik1.getPower);
+            Console.WriteLine(retifigator.getPower);
+            Console.WriteLine(retifigator2.getPower);
         }
     }
 }
